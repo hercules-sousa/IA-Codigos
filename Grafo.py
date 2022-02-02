@@ -1,21 +1,18 @@
 class Grafo:
-    QTDE_MAX_SEPARADOR = 1
-    SEPARADOR_ARESTA = '-'
-
-    def __init__(self, N=None, A=None):
-        self.N = N
-        self.A = A
+    def __init__(self, vertices=None, arestas=None):
+        self.vertices = vertices
+        self.arestas = arestas
 
     def __str__(self):
         grafo_str = str()
 
-        for i in range(len(self.N)):
-            if i < len(self.N) - 1:
-                grafo_str += f'{self.N[i]}, '
+        for i in range(len(self.vertices)):
+            if i < len(self.vertices) - 1:
+                grafo_str += f'{self.vertices[i]}, '
             else:
-                grafo_str += f'{self.N[i]}\n'
+                grafo_str += f'{self.vertices[i]}\n'
 
-        for valor in self.A:
+        for valor in self.arestas:
             grafo_str += f'Vértices: {valor[0]} -> Valor {valor[1]}\n'
 
         return grafo_str
@@ -30,7 +27,7 @@ class Grafo:
         if vertice_inicial == vertice_final:
             return vertice_final
 
-        for i in self.A:
+        for i in self.arestas:
             aresta = i[0]
             vertice1 = i[0][0]
             vertice2 = i[0][-1]
