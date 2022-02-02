@@ -2,7 +2,7 @@ class Grafo:
     QTDE_MAX_SEPARADOR = 1
     SEPARADOR_ARESTA = '-'
 
-    def __init__(self, N=[], A=[]):
+    def __init__(self, N=None, A=None):
         self.N = N
         self.A = A
 
@@ -10,7 +10,7 @@ class Grafo:
         grafo_str = str()
 
         for i in range(len(self.N)):
-            if(i < len(self.N) - 1):
+            if i < len(self.N) - 1:
                 grafo_str += f'{self.N[i]}, '
             else:
                 grafo_str += f'{self.N[i]}\n'
@@ -22,24 +22,25 @@ class Grafo:
 
     def busca_em_profundidade(self, vertice_inicial, vertice_final, visitados=None):
         if visitados is None:
-            visitados = []
-            resultado = str()
+            visitados = list()
 
-        if vertice_inicial in visitados:
-            return
-        else:
+        if vertice_inicial not in visitados:
             visitados.append(vertice_inicial)
 
         if vertice_inicial == vertice_final:
             return vertice_final
 
-        for item_aresta in self.A:
-            aresta = item_aresta[0]
-            peso = item_aresta[-1]
-            if aresta[0] == vertice_inicial and aresta[-1] not in visitados:
-                return f'{vertice_inicial} - {peso} - {self.busca_em_profundidade(aresta[-1], vertice_final, visitados)}'
-
-            if aresta[-1] == vertice_inicial and aresta[0] not in visitados:
-                return f'{vertice_inicial} - {peso} - {self.busca_em_profundidade(aresta[0], vertice_final, visitados)}'
-
-        return resultado
+        for i in self.A:
+            aresta = i[0]
+            vertice1 = i[0][0]
+            vertice2 = i[0][-1]
+            peso = str(i[1])
+            if vertice1 not in visitados and vertice1 != vertice_inicial and vertice_inicial in aresta:
+                caminho = self.busca_em_profundidade(vertice1, vertice_final, visitados)
+                if caminho is not None:
+                    return f"{vertice2} - {peso} - {caminho}"
+            elif vertice2 not in visitados and vertice2 != vertice_inicial and vertice_inicial in aresta:
+                caminho = self.busca_em_profundidade(vertice2, vertice_final, visitados)
+                if caminho is not None:
+                    return f"{vertice1} - {peso} - {caminho}"
+        return None
