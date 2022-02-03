@@ -1,4 +1,6 @@
 from grafo import Grafo
+from leitores.leitorTxt import LeitorTxt
+from mapaEstado import MapaEstado
 
 grafo1 = Grafo(list("ABCD"), [
     ["A-B", 12],
@@ -38,3 +40,7 @@ grafo4 = Grafo(list("ABCDEFG"), [
 ])
 
 print(grafo4.busca_em_profundidade("C", "G"))
+
+leitorTxt = LeitorTxt()
+mapaEstado = MapaEstado("Paraíba")
+mapaEstado.construir_grafo_estado(leitorTxt, "asdf")
