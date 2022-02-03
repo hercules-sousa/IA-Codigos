@@ -59,7 +59,7 @@ class Grafo:
             visitados.append(vertice_inicial)
 
         if vertice_inicial == vertice_final:
-            return vertice_final
+            return [vertice_final]
 
         for i in self.arestas:
             aresta = i[0]
@@ -69,9 +69,9 @@ class Grafo:
             if vertice1 not in visitados and vertice1 != vertice_inicial and vertice_inicial in aresta:
                 caminho = self.busca_em_profundidade(vertice1, vertice_final, visitados)
                 if caminho is not None:
-                    return f"{vertice2} - {peso} - {caminho}"
+                    return [vertice2, peso] + caminho
             elif vertice2 not in visitados and vertice2 != vertice_inicial and vertice_inicial in aresta:
                 caminho = self.busca_em_profundidade(vertice2, vertice_final, visitados)
                 if caminho is not None:
-                    return f"{vertice1} - {peso} - {caminho}"
+                    return [vertice1, peso] + caminho
         return None
