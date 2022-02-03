@@ -1,4 +1,4 @@
-from Grafo import Grafo
+from grafo import Grafo
 
 grafo1 = Grafo(list("ABCD"), [
     ["A-B", 12],
