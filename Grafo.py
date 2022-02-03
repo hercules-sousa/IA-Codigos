@@ -17,6 +17,40 @@ class Grafo:
 
         return grafo_str
 
+    def obter_vizinhos_e_pesos(self, vertice):
+        resultado = list()
+
+        for i in self.arestas:
+            aresta = i[0].split('-')
+
+            if aresta[0] == vertice:
+                resultado.append([i[1], aresta[1]])
+            elif aresta[1] == vertice:
+                resultado.append([i[1], aresta[0]])
+
+        return resultado
+
+    def busca_em_largura(self, vertice_inicial, vertice_final):
+        fila = list()
+
+        fila.append([vertice_inicial])
+
+        while fila:
+            caminho = fila.pop(0)
+
+            vertice = caminho[-1]
+
+            if vertice == vertice_final:
+                return caminho
+
+            for vizinho_e_peso in self.obter_vizinhos_e_pesos(vertice):
+                new_path = list(caminho)
+
+                new_path += vizinho_e_peso
+                fila.append(new_path)
+
+        return
+
     def busca_em_profundidade(self, vertice_inicial, vertice_final, visitados=None):
         if visitados is None:
             visitados = list()
