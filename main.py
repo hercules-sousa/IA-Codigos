@@ -10,6 +10,7 @@ grafo1 = Grafo(list("ABCD"), [
 ])
 
 print(grafo1.busca_em_profundidade("A", "C"))
+print(grafo1.busca_em_largura("A", "C"))
 
 grafo2 = Grafo(list("ABCD"), [
     ["A-B", 4],
@@ -18,6 +19,7 @@ grafo2 = Grafo(list("ABCD"), [
 ])
 
 print(grafo2.busca_em_profundidade("A", "D"))
+print(grafo2.busca_em_largura("A", "D"))
 
 grafo3 = Grafo(list("ABC"), [
     ["A-A", 12],
@@ -26,7 +28,9 @@ grafo3 = Grafo(list("ABC"), [
 ])
 
 print(grafo3.busca_em_profundidade("A", "C"))
+print(grafo3.busca_em_largura("A", "C"))
 print(grafo3.busca_em_profundidade("C", "A"))
+print(grafo3.busca_em_largura("C", "A"))
 
 grafo4 = Grafo(list("ABCDEFG"), [
     ["A-A", 10],
@@ -38,6 +42,7 @@ grafo4 = Grafo(list("ABCDEFG"), [
     ["E-F", 5],
     ["E-G", 4],
 ])
+print(grafo4.busca_em_largura("C", "G"))
 
 print(grafo4.busca_em_profundidade("C", "G"))
 
