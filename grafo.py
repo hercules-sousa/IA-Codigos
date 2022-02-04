@@ -129,7 +129,7 @@ class Grafo:
             aresta = i[0]
             vertice1 = aresta.split("-")[0]
             vertice2 = aresta.split("-")[-1]
-            peso = str(i[1])
+            peso = i[1]
             if vertice1 not in visitados and vertice1 != vertice_inicial and vertice_inicial in aresta:
                 caminho = self.busca_em_profundidade(vertice1, vertice_final, visitados)
                 if caminho is not None:

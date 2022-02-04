@@ -55,6 +55,12 @@ with open(caminho_txt) as arquivo:
     leitorTxt = LeitorTxt()
     mapaEstado = MapaEstado("Paraíba", leitorTxt)
     mapaEstado.construir_grafo_estado(arquivo)
-    print(mapaEstado.estado.busca_em_profundidade("Campina Grande", "Montadas"))
+    print("Exibindo mapa:")
+    print(mapaEstado.mapaGrafo)
+
+    print("Caminho da busca em profundidade")
+    print(mapaEstado.mapaGrafo.busca_em_profundidade("Campina Grande", "Montadas"))
+    print(mapaEstado.mapaGrafo.busca_em_largura("Campina Grande", "Montadas"))
+    print(mapaEstado.mapaGrafo.busca_a_estrela("Campina Grande", "Montadas", "Campina Grande"))
 
 arquivo.close()
