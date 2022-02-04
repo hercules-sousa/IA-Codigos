@@ -4,10 +4,12 @@ from interfaces.leitor import LeitorInterface
 
 
 class MapaEstado:
-    def __init__(self, nomeEstado):
+    def __init__(self, nomeEstado, leitor: Type[LeitorInterface]):
         self.nomeEstado = nomeEstado
+        self.leitor = leitor
         self.estado = Grafo()
 
-    def construir_grafo_estado(self, leitor: Type[LeitorInterface], arquivo):
+    def construir_grafo_estado(self,  arquivo) -> None:
         print(arquivo)
-        leitor.obter_dados()
+        dados = self.leitor.obter_dados()
+        print(dados)

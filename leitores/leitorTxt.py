@@ -6,4 +6,4 @@ class LeitorTxt(LeitorInterface):
         pass
 
     def obter_dados(self):
-        print("Obtendo dados...")
+        return ["Buscando dados..."]

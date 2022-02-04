@@ -47,5 +47,5 @@ print(grafo4.busca_em_largura("C", "G"))
 print(grafo4.busca_em_profundidade("C", "G"))
 
 leitorTxt = LeitorTxt()
-mapaEstado = MapaEstado("Paraíba")
-mapaEstado.construir_grafo_estado(leitorTxt, "asdf")
+mapaEstado = MapaEstado("Paraíba", leitorTxt)
+mapaEstado.construir_grafo_estado("ArquivoTxt1")
