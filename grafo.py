@@ -17,7 +17,7 @@ class Grafo:
                 grafo_str += f'{self.vertices[i]}\n'
 
         for valor in self.arestas:
-            grafo_str += f'Vértices: {valor[0]} -> Valor {valor[1]}\n'
+            grafo_str += f'Arestas: {valor[0]} -> Valor {valor[1]}\n'
 
         return grafo_str
 

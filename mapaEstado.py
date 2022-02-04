@@ -4,7 +4,7 @@ from interfaces.leitor import LeitorInterface
 
 
 class MapaEstado:
-    def __init__(self, nomeEstado, leitor: Type[LeitorInterface]):
+    def __init__(self, nomeEstado, leitor: Type[LeitorInterface]=None):
         self.nomeEstado = nomeEstado
         self.leitor = leitor
         self.mapaGrafo = Grafo()

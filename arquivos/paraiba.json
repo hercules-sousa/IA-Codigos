@@ -1,0 +1,14 @@
+{
+  "rotas": [
+    {
+      "cidadeOrigem": "Campina Grande",
+      "cidadeDestino": "João Pessoa",
+      "distancia": 124.74
+    },
+    {
+      "cidadeOrigem": "João Pessoa",
+      "cidadeDestino": "Montadas",
+      "distancia": 142.45
+    }
+  ]
+}
