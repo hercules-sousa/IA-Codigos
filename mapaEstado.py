@@ -9,6 +9,9 @@ class MapaEstado:
         self.leitor = leitor
         self.mapaGrafo = Grafo()
 
+    def setLeitor(self, leitor: Type[LeitorInterface]):
+        self.leitor = leitor
+
     def construir_grafo_estado(self,  arquivo) -> None:
         dados = self.leitor.obter_dados(arquivo)
         for aresta in dados:
