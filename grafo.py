@@ -1,5 +1,9 @@
 class Grafo:
     def __init__(self, vertices=None, arestas=None):
+        if arestas is None:
+            arestas = []
+        if vertices is None:
+            vertices = []
         self.vertices = vertices
         self.arestas = arestas
 
@@ -16,6 +20,12 @@ class Grafo:
             grafo_str += f'Vértices: {valor[0]} -> Valor {valor[1]}\n'
 
         return grafo_str
+
+    def adicionarAresta(self, aresta):
+        self.arestas.append(aresta)
+        for cidade in aresta[0].split("-"):
+            if cidade not in self.vertices:
+                self.vertices.append(cidade)
 
     def busca_a_estrela(self, vertice_inicial, vertice_final, heuristica):
         vertices_abertos = [vertice_inicial]
@@ -117,8 +127,8 @@ class Grafo:
 
         for i in self.arestas:
             aresta = i[0]
-            vertice1 = i[0][0]
-            vertice2 = i[0][-1]
+            vertice1 = aresta.split("-")[0]
+            vertice2 = aresta.split("-")[-1]
             peso = str(i[1])
             if vertice1 not in visitados and vertice1 != vertice_inicial and vertice_inicial in aresta:
                 caminho = self.busca_em_profundidade(vertice1, vertice_final, visitados)

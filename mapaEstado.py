@@ -10,6 +10,6 @@ class MapaEstado:
         self.estado = Grafo()
 
     def construir_grafo_estado(self,  arquivo) -> None:
-        print(arquivo)
-        dados = self.leitor.obter_dados()
-        print(dados)
+        dados = self.leitor.obter_dados(arquivo)
+        for aresta in dados:
+            self.estado.adicionarAresta(aresta)

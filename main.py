@@ -1,7 +1,9 @@
 from grafo import Grafo
 from leitores.leitorTxt import LeitorTxt
 from mapaEstado import MapaEstado
+import os
 
+'''
 grafo1 = Grafo(list("ABCD"), [
     ["A-B", 12],
     ["B-C", 15],
@@ -45,7 +47,14 @@ grafo4 = Grafo(list("ABCDEFG"), [
 print(grafo4.busca_em_largura("C", "G"))
 
 print(grafo4.busca_em_profundidade("C", "G"))
+'''
 
-leitorTxt = LeitorTxt()
-mapaEstado = MapaEstado("Paraíba", leitorTxt)
-mapaEstado.construir_grafo_estado("ArquivoTxt1")
+nome_pasta = os.path.dirname(__file__)
+caminho_txt = os.path.join(nome_pasta, 'arquivos/paraiba.txt')
+with open(caminho_txt) as arquivo:
+    leitorTxt = LeitorTxt()
+    mapaEstado = MapaEstado("Paraíba", leitorTxt)
+    mapaEstado.construir_grafo_estado(arquivo)
+    print(mapaEstado.estado.busca_em_profundidade("Campina Grande", "Montadas"))
+
+arquivo.close()
