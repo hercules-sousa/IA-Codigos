@@ -1,48 +1,63 @@
 import os
-from mapaEstado import MapaEstado
+from mapa import Mapa
 from leitores.leitorTxt import LeitorTxt
 from leitores.leitorJson import LeitorJson
 
-mapaEstado = MapaEstado("Paraíba")
+# Obtendo diretório onde o programa está sendo executado
+dir_atual = os.path.dirname(__file__)
 
-print("Trabalhando com arquivo TXT")
-nomePasta = os.path.dirname(__file__)
-caminhoTxt = os.path.join(nomePasta, 'arquivos/paraiba.txt')
-with open(caminhoTxt) as arquivoTxt:
-    leitorTxt = LeitorTxt()
-    mapaEstado.setLeitor(leitorTxt)
-    mapaEstado.construir_grafo_estado(arquivoTxt)
+# Obtendo caminho do arquivo
+caminho_arquivo = os.path.join(dir_atual, 'arquivos/Cidades - Brasil.txt')
 
-    print("Exibindo mapa:")
-    print(mapaEstado.mapaGrafo)
+# Criando mapa
+mapa = Mapa("Capitais")
 
-    print("Caminho da busca em profundidade")
-    print(mapaEstado.mapaGrafo.busca_em_profundidade("Campina Grande", "Montadas"))
-    print()
-    print("Caminho da busca em largura")
-    print(mapaEstado.mapaGrafo.busca_em_largura("Campina Grande", "Montadas"))
-    print()
-    print("Caminho da busca em estrela")
-    print(mapaEstado.mapaGrafo.busca_a_estrela("Campina Grande", "Montadas", "Campina Grande"))
-    print()
+# Criando leitores para arquivos TXT e JSON
+leitorTXT = LeitorTxt()
+leitorJSON = LeitorJson()
 
-arquivoTxt.close()
+# Verificando tipo de arquivo para determinar leitor
+if caminho_arquivo.endswith('.txt'):
+    print('Trabalhando com arquivo TXT...\n')
 
-print("Trabalhando com arquivo JSON")
-caminho_json = os.path.join(nomePasta, 'arquivos/paraiba.json')
-with open(caminho_json) as arquivoJson:
-    leitorJson = LeitorJson()
-    mapaEstado.setLeitor(leitorJson)
-    mapaEstado.construir_grafo_estado(arquivoJson)
+    mapa.setLeitor(leitorTXT)
+elif caminho_arquivo.endswith('.json'):
+    print('Trabalhando com arquivo JSON...\n')
 
-    print("Caminho da busca em profundidade")
-    print(mapaEstado.mapaGrafo.busca_em_profundidade("Campina Grande", "Montadas"))
-    print()
-    print("Caminho da busca em largura")
-    print(mapaEstado.mapaGrafo.busca_em_largura("Campina Grande", "Montadas"))
-    print()
-    print("Caminho da busca em estrela")
-    print(mapaEstado.mapaGrafo.busca_a_estrela("Campina Grande", "Montadas", "Campina Grande"))
-    print()
+    mapa.setLeitor(leitorJSON)
 
-arquivoJson.close()
+# Abrindo arquivo para obter dados e construir grafo
+with open(caminho_arquivo, encoding='utf-8') as arquivo:
+    mapa.construir_grafo_mapa(arquivo)
+
+arquivo.close()
+
+print(mapa.mapaGrafo)
+
+# Obtendo entrada do usuário
+cidade_origem = input('Digite o nome da cidade origem: ')
+cidade_destino = input('Digite o nome da cidade destino: ')
+
+print('\nEscolha um tipo de algoritmo de busca:\n')
+print('1 - Busca em profundidade')
+print('2 - Busca em largura')
+print('3 - Busca A*')
+
+op = int(input())
+
+if op == 1:
+    print("Caminho da busca em profundidade:")
+    print(mapa.mapaGrafo.busca_em_profundidade(cidade_origem, cidade_destino))
+
+if op == 2:
+    print("Caminho da busca em largura:")
+    print(mapa.mapaGrafo.busca_em_largura(cidade_origem, cidade_destino))
+
+if op == 3:
+    print('\nInforme os valores heurísticos:\n')
+
+    # Criando dicionário enquanto obtém entrada do usuário
+    h = {cidade: float(input(f'{cidade}: ')) for cidade in mapa.mapaGrafo.vertices}
+
+    print("\nCaminho da busca em estrela:")
+    print(mapa.mapaGrafo.busca_a_estrela(cidade_origem, cidade_destino, h))

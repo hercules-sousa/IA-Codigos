@@ -14,10 +14,10 @@ class Grafo:
             if i < len(self.vertices) - 1:
                 grafo_str += f'{self.vertices[i]}, '
             else:
-                grafo_str += f'{self.vertices[i]}\n'
+                grafo_str += f'{self.vertices[i]}\n\n'
 
         for valor in self.arestas:
-            grafo_str += f'Arestas: {valor[0]} -> Valor {valor[1]}\n'
+            grafo_str += f'Cidades: {valor[0]} -> distância {valor[1]}\n'
 
         return grafo_str
 
@@ -36,7 +36,7 @@ class Grafo:
         }
 
         parents = {
-            vertice_inicial: vertice_inicial
+            vertice_inicial: [vertice_inicial, 0]
         }
 
         while len(vertices_abertos) > 0:
@@ -52,9 +52,9 @@ class Grafo:
             if node == vertice_final:
                 caminho = list()
 
-                while parents[node] != node:
-                    caminho.append(node)
-                    node = parents[node]
+                while parents[node][0] != node:
+                    caminho += [node, parents[node][1]]
+                    node = parents[node][0]
 
                 caminho.append(vertice_inicial)
 
@@ -67,12 +67,12 @@ class Grafo:
 
                 if vertice not in vertices_abertos and vertice not in vertices_fechados:
                     vertices_abertos.append(vertice)
-                    parents[vertice] = node
+                    parents[vertice] = [node, peso]
                     distancia_atual[vertice] = distancia_atual[node] + peso
                 else:
                     if distancia_atual[vertice] > distancia_atual[node] + peso:
                         distancia_atual[vertice] = distancia_atual[node] + peso
-                        parents[vertice] = node
+                        parents[vertice] = [node, peso]
 
                         if vertice in vertices_fechados:
                             vertices_fechados.remove(vertice)

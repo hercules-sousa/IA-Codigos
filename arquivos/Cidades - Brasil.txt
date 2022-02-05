@@ -1,0 +1,10 @@
+Brasília, 206.52, Goiânia
+Goiânia, 896.71, Cuiabá
+Cuiabá, 1589.26, Palmas
+Palmas, 819.17, Brasília
+Brasília, 80.08, Formosa
+Formosa, 556.40, Barreiras
+Barreiras, 659.68, Montes Claros
+Montes Claros, 427.17, Belo Horizonte
+Belo Horizonte, 220.54, Ipatinga
+Ipatinga, 527.04, Montes Claros

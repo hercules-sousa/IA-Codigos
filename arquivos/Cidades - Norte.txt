@@ -1,0 +1,9 @@
+Boa Vista, 37.33, Cantá
+Cantá, 100.00, Mucajaí
+Mucajaí, 50.64, Iracema
+Iracema, 130.76, Cantá
+Iracema, 42.82, Caracaraí
+Cantá, 172.07, Caracaraí
+Caracaraí, 155.96, Rorainópolis
+Rorainópolis, 295.28, Boa Vista
+Rorainópolis, 492.55, Manaus

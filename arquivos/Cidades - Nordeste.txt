@@ -1,0 +1,11 @@
+Campina Grande, 124.74, João Pessoa
+João Pessoa, 59.96, Itambé
+Itambé, 103.68, Campina Grande
+Itambé, 92.62, Recife
+Recife, 114.79, João Pessoa
+Recife, 134.00, Caruaru
+Caruaru , 198.19, Maceió
+Maceió, 274.84, Aracaju
+Aracaju, 472.48, Petrolina
+Petrolina, 682.20, Maceió
+Petrolina, 583.31, Caruaru

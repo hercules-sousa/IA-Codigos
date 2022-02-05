@@ -1,0 +1,59 @@
+{
+  "rotas": [
+    {
+      "cidadeOrigem": "Campina Grande",
+      "cidadeDestino": "João Pessoa",
+      "distancia": 124.74 
+    },
+    {
+      "cidadeOrigem": "João Pessoa",
+      "cidadeDestino": "Itambé",
+      "distancia": 103.68 
+    },
+    {
+      "cidadeOrigem": "Itambé",
+      "cidadeDestino": "Campina Grande",
+      "distancia": 103.68
+    },
+    {
+      "cidadeOrigem": "Itambé",
+      "cidadeDestino": "Recife",
+      "distancia": 92.62 
+    },
+    {
+      "cidadeOrigem": "Recife",
+      "cidadeDestino": "João Pessoa",
+      "distancia": 114.79
+    },
+    {
+      "cidadeOrigem": "Recife",
+      "cidadeDestino": "Caruaru",
+      "distancia": 134.00
+    },
+    {
+      "cidadeOrigem": "Caruaru",
+      "cidadeDestino": "Maceió",
+      "distancia": 198.19
+    },
+    {
+      "cidadeOrigem": "Maceió",
+      "cidadeDestino": "Aracaju",
+      "distancia": 274.84
+    },
+    {
+      "cidadeOrigem": "Aracaju",
+      "cidadeDestino": "Petrolina",
+      "distancia": 472.48
+    },
+    {
+      "cidadeOrigem": "Petrolina",
+      "cidadeDestino": "Maceió",
+      "distancia": 682.20
+    },
+    {
+      "cidadeOrigem": "Petrolina",
+      "cidadeDestino": "Caruaru",
+      "distancia": 583.31
+    }
+  ]
+}

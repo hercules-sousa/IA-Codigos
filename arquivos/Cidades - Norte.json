@@ -1,0 +1,49 @@
+{
+  "rotas":[
+    {
+      "cidadeOrigem":"Boa Vista",
+      "cidadeDestino":"Cantá",
+      "distancia": 37.33
+    },
+    {
+      "cidadeOrigem":"Cantá",
+      "cidadeDestino":"Mucajaí",
+      "distancia": 100.00
+    },
+    {
+      "cidadeOrigem":"Mucajaí",
+      "cidadeDestino":"Iracema",
+      "distancia": 50.64
+    },
+    {
+      "cidadeOrigem":"Iracema",
+      "cidadeDestino":"Cantá",
+      "distancia": 130.76
+    },
+    {
+      "cidadeOrigem":"Iracema",
+      "cidadeDestino":"Caracaraí",
+      "distancia": 42.82
+    },
+    {
+      "cidadeOrigem":"Cantá",
+      "cidadeDestino":"Caracaraí",
+      "distancia": 172.07
+    },
+    {
+      "cidadeOrigem":"Caracaraí",
+      "cidadeDestino":"Rorainópolis",
+      "distancia": 155.96
+    },
+    {
+      "cidadeOrigem":"Rorainópolis",
+      "cidadeDestino":"Boa Vista",
+      "distancia": 295.28
+    },
+    {
+      "cidadeOrigem":"Rorainópolis",
+      "cidadeDestino":"Manaus",
+      "distancia": 492.55
+    }
+  ]
+}

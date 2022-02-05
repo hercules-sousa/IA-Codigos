@@ -1,0 +1,54 @@
+{
+  "rotas":[
+    {
+      "cidadeOrigem": "Brasília",
+      "cidadeDestino": "Goiânia",
+      "distancia": 206.52
+    },
+    {
+      "cidadeOrigem": "Goiânia",
+      "cidadeDestino": "Cuiabá",
+      "distancia": 896.71
+    },
+    {
+      "cidadeOrigem": "Cuiabá",
+      "cidadeDestino": "Palmas",
+      "distancia": 1589.26
+    },
+    {
+      "cidadeOrigem": "Palmas",
+      "cidadeDestino": "Brasília",
+      "distancia": 819.17 
+    },
+    {
+      "cidadeOrigem": "Brasília",
+      "cidadeDestino": "Formosa",
+      "distancia": 80.08
+    },
+    {
+      "cidadeOrigem": "Formosa",
+      "cidadeDestino": "Barreiras",
+      "distancia": 556.40
+    },
+    {
+      "cidadeOrigem": "Barreiras",
+      "cidadeDestino": "Montes Claros",
+      "distancia": 659.68
+    },
+    {
+      "cidadeOrigem": "Montes Claros",
+      "cidadeDestino": "Belo Horizonte",
+      "distancia": 427.17
+    },
+    {
+      "cidadeOrigem": "Belo Horizonte",
+      "cidadeDestino": "Ipatinga",
+      "distancia": 220.54
+    },
+    {
+      "cidadeOrigem": "Ipatinga",
+      "cidadeDestino": "Montes Claros",
+      "distancia": 527.04
+    }
+  ]
+}
