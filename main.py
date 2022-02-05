@@ -1,5 +1,5 @@
 import os
-from mapa import Mapa
+from mapa.mapa import Mapa
 from leitores.leitorTxt import LeitorTxt
 from leitores.leitorJson import LeitorJson
 
@@ -13,18 +13,18 @@ caminho_arquivo = os.path.join(dir_atual, 'arquivos/Cidades - Brasil.txt')
 mapa = Mapa("Capitais")
 
 # Criando leitores para arquivos TXT e JSON
-leitorTXT = LeitorTxt()
-leitorJSON = LeitorJson()
+leitor_txt = LeitorTxt()
+leitor_json = LeitorJson()
 
 # Verificando tipo de arquivo para determinar leitor
 if caminho_arquivo.endswith('.txt'):
     print('Trabalhando com arquivo TXT...\n')
 
-    mapa.setLeitor(leitorTXT)
+    mapa.set_leitor(leitor_txt)
 elif caminho_arquivo.endswith('.json'):
     print('Trabalhando com arquivo JSON...\n')
 
-    mapa.setLeitor(leitorJSON)
+    mapa.set_leitor(leitor_json)
 
 # Abrindo arquivo para obter dados e construir grafo
 with open(caminho_arquivo, encoding='utf-8') as arquivo:
@@ -32,7 +32,7 @@ with open(caminho_arquivo, encoding='utf-8') as arquivo:
 
 arquivo.close()
 
-print(mapa.mapaGrafo)
+print(mapa.mapa_grafo)
 
 # Obtendo entrada do usuário
 cidade_origem = input('Digite o nome da cidade origem: ')
@@ -47,17 +47,17 @@ op = int(input())
 
 if op == 1:
     print("Caminho da busca em profundidade:")
-    print(mapa.mapaGrafo.busca_em_profundidade(cidade_origem, cidade_destino))
+    print(mapa.mapa_grafo.busca_em_profundidade(cidade_origem, cidade_destino))
 
 if op == 2:
     print("Caminho da busca em largura:")
-    print(mapa.mapaGrafo.busca_em_largura(cidade_origem, cidade_destino))
+    print(mapa.mapa_grafo.busca_em_largura(cidade_origem, cidade_destino))
 
 if op == 3:
     print('\nInforme os valores heurísticos:\n')
 
     # Criando dicionário enquanto obtém entrada do usuário
-    h = {cidade: float(input(f'{cidade}: ')) for cidade in mapa.mapaGrafo.vertices}
+    h = {cidade: float(input(f'{cidade}: ')) for cidade in mapa.mapa_grafo.vertices}
 
     print("\nCaminho da busca em estrela:")
-    print(mapa.mapaGrafo.busca_a_estrela(cidade_origem, cidade_destino, h))
+    print(mapa.mapa_grafo.busca_a_estrela(cidade_origem, cidade_destino, h))

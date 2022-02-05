@@ -1,6 +1,7 @@
 class VerticeInvalidoException(Exception):
     pass
 
+
 class Grafo:
     def __init__(self, vertices=None, arestas=None):
         if arestas is None:
@@ -24,21 +25,21 @@ class Grafo:
 
         return grafo_str
 
-    def verticeValido(self, vertice):
+    def vertice_valido(self, vertice):
         if vertice in self.vertices:
             return True
         return False
 
-    def adicionarAresta(self, aresta):
+    def adicionar_aresta(self, aresta):
         self.arestas.append(aresta)
         for cidade in aresta[0].split("-"):
             if cidade not in self.vertices:
                 self.vertices.append(cidade)
 
     def busca_a_estrela(self, vertice_inicial, vertice_final, heuristica):
-        if not self.verticeValido(vertice_inicial):
+        if not self.vertice_valido(vertice_inicial):
             raise VerticeInvalidoException(vertice_inicial)
-        if not self.verticeValido(vertice_final):
+        if not self.vertice_valido(vertice_final):
             raise VerticeInvalidoException(vertice_final)
 
         vertices_abertos = [vertice_inicial]
@@ -108,9 +109,9 @@ class Grafo:
         return resultado
 
     def busca_em_largura(self, vertice_inicial, vertice_final):
-        if not self.verticeValido(vertice_inicial):
+        if not self.vertice_valido(vertice_inicial):
             raise VerticeInvalidoException(vertice_inicial)
-        if not self.verticeValido(vertice_final):
+        if not self.vertice_valido(vertice_final):
             raise VerticeInvalidoException(vertice_final)
 
         fila = list()
@@ -135,9 +136,9 @@ class Grafo:
 
     def busca_em_profundidade(self, vertice_inicial, vertice_final, visitados=None):
         if visitados is None:
-            if not self.verticeValido(vertice_inicial):
+            if not self.vertice_valido(vertice_inicial):
                 raise VerticeInvalidoException(vertice_inicial)
-            if not self.verticeValido(vertice_final):
+            if not self.vertice_valido(vertice_final):
                 raise VerticeInvalidoException(vertice_final)
 
             visitados = list()
