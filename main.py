@@ -47,11 +47,11 @@ op = int(input())
 
 if op == 1:
     print("Caminho da busca em profundidade:")
-    print(mapa.mapa_grafo.busca_em_profundidade(cidade_origem, cidade_destino))
+    print(mapa.busca_em_profundidade(cidade_origem, cidade_destino))
 
 if op == 2:
     print("Caminho da busca em largura:")
-    print(mapa.mapa_grafo.busca_em_largura(cidade_origem, cidade_destino))
+    print(mapa.busca_em_largura(cidade_origem, cidade_destino))
 
 if op == 3:
     print('\nInforme os valores heurísticos:\n')
@@ -60,4 +60,4 @@ if op == 3:
     h = {cidade: float(input(f'{cidade}: ')) for cidade in mapa.mapa_grafo.vertices}
 
     print("\nCaminho da busca em estrela:")
-    print(mapa.mapa_grafo.busca_a_estrela(cidade_origem, cidade_destino, h))
+    print(mapa.busca_a_estrela(cidade_origem, cidade_destino, h))
